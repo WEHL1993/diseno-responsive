@@ -1,10 +1,22 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
+/* Contenedor principal que extiende todo el alto de la pantalla */
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* El contenido principal ocupa todo el espacio disponible */
+.main-content {
+  flex: 1;
+}
+
+/* --- Estilos existentes que funcionan bien --- */
 .logo {
   height: 6em;
   padding: 1.5em;
