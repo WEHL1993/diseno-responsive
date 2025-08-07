@@ -52,3 +52,13 @@ html, body {
 .read-the-docs {
   color: #888;
 }
+
+.nav-link {
+  color: white; /* color base */
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #00d8ff; /* cian brillante */
+  text-shadow: 0 0 8px #00d8ff, 0 0 16px #00d8ff; /* resplandor */
+}
