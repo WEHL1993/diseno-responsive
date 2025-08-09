@@ -1,109 +1,99 @@
+/* ===== Reset y layout base ===== */
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
 }
-
-/* Contenedor principal que extiende todo el alto de la pantalla */
 .app-wrapper {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
+.main-content { flex: 1; }
 
-/* El contenido principal ocupa todo el espacio disponible */
-.main-content {
-  flex: 1;
+/* ===== Navbar base ===== */
+.navbar {
+  display: flex;
+  align-items: center;
 }
-
-/* --- Estilos existentes que funcionan bien --- */
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.navbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-.nav-link {
-  color: white; /* color base */
+.navbar .nav-link {
+  color: #fff;
   transition: color 0.3s ease, text-shadow 0.3s ease;
 }
-
-.nav-link:hover {
-  color: #00d8ff; /* cian brillante */
-  text-shadow: 0 0 8px #00d8ff, 0 0 16px #00d8ff; /* resplandor */
+.navbar .nav-link:hover {
+  color: #0B5ED7;
+  text-shadow: 0 0 8px #0B5ED7, 0 0 16px #0B5ED7;
 }
-.card-img-fixed {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-top-left-radius: 0.5rem;
-  border-top-right-radius: 0.5rem;
+.navbar .navbar-brand {
+  text-decoration: none;
+  color: #fff;
 }
 
-.search-container {
-  position: relative;
-  width: 180px; /* Más pequeña */
+/* ===== Breakpoint personalizado: 600px ===== */
+@media (min-width: 601px) {
+  .navbar-expand-custom .navbar-collapse {
+    display: flex !important;
+    flex-basis: auto;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .navbar-expand-custom .navbar-nav {
+    display: flex;
+    flex-direction: row; /* fuerza horizontal */
+    gap: 1rem; /* espacio entre enlaces */
+  }
+  .navbar-expand-custom .navbar-toggler {
+    display: none;
+  }
 }
 
-.search-input {
-  width: 100%;
-  padding: 6px 10px 6px 30px;
-  font-size: 13px;
-  border-radius: 999px;
-  background-color: white;
-  border: none;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  outline: none;
+/* ===== Ajustes móviles (≤599.98px) ===== */
+@media (max-width: 599.98px) {
+  .navbar-collapse {
+    gap: 0.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .navbar-nav {
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* vertical en móvil */
+  }
+  .navbar-nav .nav-link {
+    padding: 0.5rem 0;
+  }
 }
 
-.search-input::placeholder {
-  color: #888;
-  font-size: 13px;
+/* ===== Cards: 1 / 2 / 3 columnas ===== */
+.card-col {
+  flex: 0 0 100%;
+  max-width: 100%;
+  padding-left: .75rem;
+  padding-right: .75rem;
+}
+@media (min-width: 601px) and (max-width: 1024px) {
+  .card-col { flex: 0 0 50%; max-width: 50%; }
+}
+@media (min-width: 1025px) {
+  .card-col { flex: 0 0 33.3333%; max-width: 33.3333%; }
 }
 
-.search-container::before {
-  content: "🔍";
-  position: absolute;
-  left: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 13px;
-  color: #888;
+/* ===== Tipografía del Hero ===== */
+.hero-title { font-weight: 700; }
+@media (max-width: 600px) {
+  .hero-title { font-size: 1.75rem; }
+  .hero-lead  { font-size: 1rem; margin: 0 8px; }
+}
+@media (min-width: 601px) and (max-width: 1024px) {
+  .hero-title { font-size: 2rem; }
+  .hero-lead  { font-size: 1.05rem; }
+}
+@media (min-width: 1025px) {
+  .hero-title { font-size: 2.5rem; }
 }
 
-.custom-container {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
