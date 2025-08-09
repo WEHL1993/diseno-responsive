@@ -27,22 +27,20 @@ function Section() {
   return (
     <section className="py-5">
       <div className="container">
-      {/* <div className="container-fluid px-4"> */}
-        <div className="row g-4">
+        {/* Usamos .row (flex container de Bootstrap) + .card-col (tus breakpoints 600/1024) */}
+        <div className="row">
           {servicios.map((servicio, index) => (
-            <div key={index} className="col-12 col-md-6 col-lg-4">
+            <div key={index} className="card-col">
               <div className="card h-100 shadow-sm">
                 <img
-                    src={servicio.imagen}
-                    alt={servicio.titulo}
-                    className="card-img-top card-img-fixed"
-                  />             
+                  src={servicio.imagen}
+                  alt={servicio.titulo}
+                  className="card-img-top card-img-fixed"
+                />
                 <div className="card-body">
                   <h5 className="card-title">{servicio.titulo}</h5>
                   <p className="card-text">{servicio.texto}</p>
-                  <a href="#" className="btn btn-primary">
-                    Leer más
-                  </a>
+                  <a href="#" className="btn btn-primary">Leer más</a>
                 </div>
               </div>
             </div>
@@ -54,3 +52,4 @@ function Section() {
 }
 
 export default Section;
+
